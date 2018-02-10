@@ -1,10 +1,15 @@
-<h1>Categories</h1>
+<h2>Categories</h2>
 
-<% @categories.each do |category| %>
-  <h3><%= link_to category.name, category_path(category) %></h3>
-  <p><%= link_to "Edit", edit_category_path(category) %></p>
-  <p><%= link_to "Delete", category_path(category), method: :delete %></p>
-<% end %>
+<section class="grid">
+  <% @categories.each do |category| %>
+    <div class="grid-cell">
+      <h3><%= link_to category.name, category_path(category) %></h3>
+      <p><%= link_to "Edit", edit_category_path(category) %> - <%= link_to "Delete", category_path(category), method: :delete %></p>
+    </div>
+  <% end %>
+</section>
 
-<h2>New Category</h2>
-<%= render partial: "form" %>
+<footer class="new-category">
+  <h3>New Category</h3>
+  <%= render partial: "form" %>
+</footer>

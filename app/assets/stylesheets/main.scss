@@ -2,10 +2,12 @@ $dark-charcoal: #454850;
 $light-gray: #C0C5C1;
 $pale-yellow: #EFF4DB;
 
-body, h1 {
+body, h1, a {
   margin: 0;
   font-family: lobster, cursive;
   color: $dark-charcoal;
+  text-decoration: none;
+  text-align: center;
 }
 
 header {
@@ -27,7 +29,51 @@ nav a {
   margin: 2%;
 }
 
+.gridcell a {
+  text-decoration: none;
+  color: $dark-charcoal;
+}
+
 h1 {
   font-size: 60px;
   padding: 3%
+}
+
+h2 {
+  font-size: 45px;
+}
+
+h3 {
+  margin: 1%;
+  font-size: 25px;
+}
+
+section.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+div.grid-cell {
+  margin: 2.5%;
+  background-color: $light-gray;
+  width: 20%;
+}
+
+footer {
+  padding: 1%;
+  margin: 0;
+  background-color: white;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  align-content: center;
+}
+
+form {
+  margin: 1%;
+}
+
+.flash{
+  margin: 0;
 }
