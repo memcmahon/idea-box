@@ -12,8 +12,8 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     if @category.save
       flash[:notice] = "Success"
-      redirect_to categories_path
     end
+    redirect_to categories_path
   end
 
   private
