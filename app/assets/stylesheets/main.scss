@@ -1,5 +1,33 @@
-$dark-hunter: #3C493F;
-$dark-green-gray: #7E8D85;
-$light-green-gray: #B3BFB8;
-$off-white: #F0F7F4;
-$light-green: #A2E3C4;
+$dark-charcoal: #454850;
+$light-gray: #C0C5C1;
+$pale-yellow: #EFF4DB;
+
+body, h1 {
+  margin: 0;
+  font-family: lobster, cursive;
+  color: $dark-charcoal;
+}
+
+header {
+  background-image: url('sky.jpg');
+  background-size: cover;
+  background-position: left;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: $dark-charcoal;
+}
+
+nav a {
+  text-decoration: none;
+  color: $pale-yellow;
+  margin: 2%;
+}
+
+h1 {
+  font-size: 60px;
+  padding: 3%
+}

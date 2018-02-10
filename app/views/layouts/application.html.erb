@@ -6,9 +6,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="../../assets/stylesheets/main.scss">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   </head>
 
   <body>
+    <header>
+      <h1>Travel Box</h1>
+      <nav>
+        <p><%= link_to "Ideas"%></p>
+        <p><%= link_to "Categories", categories_path %></p>
+        <p><%= link_to "Images"%></p>
+        <p><%= link_to "Users"%></p>
+      </nav>
+    </header>
     <p class="flash"><%= flash.notice %></p>
     <%= yield %>
   </body>
