@@ -9,6 +9,7 @@ describe "user can create a new category" do
       click_on("Create Category")
 
       expect(current_path).to eq(categories_path)
+      expect(page).to have_content("Success") 
       expect(page).to have_content("Cruise")
     end
   end
