@@ -9,7 +9,7 @@ describe "users can view the details of a single idea" do
     @idea_1 = @user.ideas.create!(title: "Heli-Ski Alaska", content: "lets go heliskiing in AK.", category: @category)
     @idea_2 = @user.ideas.create!(title: "Boulder Virgin Gorda", content: "lets boulder in virgin gorda!", category: @category)
     IdeaImage.create!(image: @image_1, idea: @idea_1)
-    IdeaImage.create!(image: @image_2, idea: @image_2)
+    IdeaImage.create!(image: @image_2, idea: @idea_2)
   end
 
   describe "they visit user_idea_path" do
