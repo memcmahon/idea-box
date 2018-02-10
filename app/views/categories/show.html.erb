@@ -1,4 +1,3 @@
-<h1><%= @category.name %></h1>
+<h2><%= @category.name %></h2>
 
-<p><%= link_to "Edit", edit_category_path(@category) %></p>
-<p><%= link_to "Delete", category_path(@category), method: :delete %></p>
+<p><%= link_to "Edit", edit_category_path(@category) %> - <%= link_to "Delete", category_path(@category), method: :delete %></p>
