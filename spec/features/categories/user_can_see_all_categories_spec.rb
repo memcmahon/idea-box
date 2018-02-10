@@ -9,10 +9,10 @@ describe "user can see a list of all categories" do
 
       visit categories_path
 
-      expect(page).to have content ("Categories")
-      expect(page).to have content ("Adventure")
-      expect(page).to have content ("Relax")
-      expect(page).to have content ("Volunteer")
+      expect(page).to have_content ("Categories")
+      expect(page).to have_content ("Adventure")
+      expect(page).to have_content ("Relax")
+      expect(page).to have_content ("Volunteer")
     end
   end
 end
