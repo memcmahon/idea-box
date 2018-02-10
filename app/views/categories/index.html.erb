@@ -3,3 +3,6 @@
 <% @categories.each do |category| %>
   <h3><%= link_to category.name, category_path(category) %></h3>
 <% end %>
+
+<h2>New Category</h2>
+<%= render partial: "form" %>

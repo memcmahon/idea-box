@@ -11,4 +11,5 @@ describe "user can create a new category" do
       expect(current_path).to eq(categories_path)
       expect(page).to have_content("Cruise")
     end
+  end
 end
