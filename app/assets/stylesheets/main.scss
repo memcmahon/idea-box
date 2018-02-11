@@ -10,6 +10,12 @@ body, h1, a {
   text-align: center;
 }
 
+img {
+  width: 30%;
+  height: 30%;
+  border: 2px solid $light-gray;
+}
+
 header {
   background-image: url('sky.jpg');
   background-size: cover;
@@ -48,7 +54,19 @@ h3 {
   font-size: 25px;
 }
 
+p.content {
+  margin-left: 1%;
+}
+
+section.content {
+  display: flex;
+  margin-left: 15%;
+  width: 70%;
+  border: 2px solid $light-gray;
+}
+
 section.grid {
+  margin-top: 2%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
