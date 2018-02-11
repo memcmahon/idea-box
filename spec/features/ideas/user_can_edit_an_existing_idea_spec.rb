@@ -27,4 +27,23 @@ describe "user can edit an idea" do
       expect(page).to_not have_content("Adventure")
     end
   end
+
+  describe "user visits user_ideas_path" do
+    it "they can edit that idea" do
+      visit user_ideas_path(@user)
+
+      click_on("Edit", match: :first)
+
+      fill_in("idea[title]", with: "Spa Weekend")
+      fill_in("idea[content]", with: "I need a massage!")
+      select("Relax", :from => "idea[category_id]")
+      click_on("Update Idea")
+
+      expect(page).to have_content("Spa Weekend")
+      expect(page).to have_content("I need a massage!")
+      expect(page).to have_content("Relax")
+      expect(page).to_not have_content("Heli-Ski Alaska")
+      expect(page).to_not have_content("Adventure")
+    end
+  end
 end
