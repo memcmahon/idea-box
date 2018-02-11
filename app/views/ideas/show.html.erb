@@ -1,5 +1,7 @@
 <h2><%= @idea.title %></h2>
 
+<p><%= link_to "Edit", edit_user_idea_path(@user, @idea) %></p>
+
 <p><%= @idea.category.name %></p>
 
 <p><%= @idea.content %></p>
