@@ -26,6 +26,11 @@ class IdeasController < ApplicationController
     end
   end
 
+  def edit
+    @idea = Idea.find(params[:id])
+    @user = @idea.user
+  end
+
   private
 
   def idea_params
