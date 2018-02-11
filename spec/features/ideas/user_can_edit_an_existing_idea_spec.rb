@@ -11,7 +11,7 @@ describe "user can edit an idea" do
 
   describe "user visits user_idea_path" do
     it "they can edit that idea" do
-      visit user_idea_path(@user, @idea)
+      visit user_idea_path(@user, @idea_1)
 
       click_on("Edit")
 
