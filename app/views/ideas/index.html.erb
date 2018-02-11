@@ -1,10 +1,15 @@
 <h2><%= @user.first_name %>'s Ideas</h2>
 
-<h3><%= link_to "New Idea", new_user_idea_path(@user) %></h3>
+<section class="grid" >
+  <% @ideas.each do |idea| %>
+    <div class="grid-cell">
+      <h3><%= idea.title %></h3>
+      <p><%= idea.content %></p>
+      <p><%= link_to "Edit", edit_user_idea_path(@user, idea) %> - <%= link_to "Delete", user_idea_path(@user, idea), method: :delete %></p>
+    </div>
+  <% end %>
+</section>
 
-<% @ideas.each do |idea| %>
-  <%= idea.title %>
-  <%= idea.content %>
-  <p><%= link_to "Edit", edit_user_idea_path(@user, idea) %> - <%= link_to "Delete", user_idea_path(@user, idea), method: :delete %></p>
-
-<% end %>
+<footer>
+  <h3><%= link_to "New Idea", new_user_idea_path(@user) %></h3>
+</footer>
