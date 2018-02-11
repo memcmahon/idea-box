@@ -12,7 +12,6 @@ class IdeasController < ApplicationController
     @categories = Category.all
     @user = User.find(params[:user_id])
     @idea = @user.ideas.new()
-    binding.pry
   end
 
   def create
