@@ -14,6 +14,8 @@ describe "user can create a new idea" do
 
       click_on("New Idea")
 
+      save_and_open_page
+
       fill_in("idea[title]", with: "Heli-Ski Alaska")
       fill_in("idea[content]", with: "Lets shred in AK!")
       select("Adventure", :from => "idea[category]")
