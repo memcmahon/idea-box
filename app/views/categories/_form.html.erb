@@ -1,6 +1,10 @@
 <%= form_for @category do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div><br>
 
-  <%= f.submit %>
+  <div>
+    <%= f.submit %>
+  </div>
 <% end %>
