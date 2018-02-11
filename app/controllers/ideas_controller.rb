@@ -6,6 +6,7 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
+    @user = @idea.user
   end
 
   def new

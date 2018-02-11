@@ -5,5 +5,5 @@
 <% @ideas.each do |idea| %>
   <%= idea.title %>
   <%= idea.content %>
-  <%= link_to "Edit", edit_user_idea_path(@user, @idea) %>
+  <%= link_to "Edit", edit_user_idea_path(@user, idea) %>
 <% end %>
