@@ -21,6 +21,11 @@ describe "user can create a new idea" do
       click_on("Create Idea")
 
       expect(current_path).to eq(user_idea_path(@user, Idea.last))
+      expect(page).to have_content("Heli-Ski Alaska")
+      expect(page).to have_content("Lets shred in AK!")
+      expect(page).to have_content("Adventure")
+      expect(page).to_not have_content("Spa Weekend")
+      expect(page).to_not have_content("Relax")
     end
   end
 end
