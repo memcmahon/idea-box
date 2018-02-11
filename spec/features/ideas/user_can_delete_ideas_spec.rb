@@ -21,7 +21,7 @@ describe "user can delete ideas" do
 
   describe "they visit user_idea_path" do
     it "they can delete that idea" do
-      visit user_ideas_path(@user, @idea_1)
+      visit user_idea_path(@user, @idea_1)
 
       click_on("Delete")
 
