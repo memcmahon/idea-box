@@ -9,4 +9,10 @@ class IdeaImagesController < ApplicationController
       redirect_to user_idea_path(@user, @idea)
     end
   end
+
+  private
+
+  def idea_image_params
+    params.require(:idea_image).permit(:idea_id, :image_id)
+  end
 end
