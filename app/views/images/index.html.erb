@@ -3,7 +3,7 @@
 <% @images.each do |image| %>
   <img src="<%= image.url %>">
   <%= image.alt_tag %>
-  <%= link_to "Edit", edit_image_path(image) %>
+  <%= link_to "Edit", edit_image_path(image) %> - <%= link_to "Delete", image_path(image), method: :delete %>
 <% end %>
 
 <h3>Add Image</h3>
