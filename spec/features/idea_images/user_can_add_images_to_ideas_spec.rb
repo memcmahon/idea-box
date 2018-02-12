@@ -13,7 +13,7 @@ describe "user can add a images to an idea" do
     it "they can add an image to that idea" do
       visit user_idea_path(@user, @idea)
 
-      select("Heliskiing", :from => "idea[image_id]")
+      select("Heliskiing", :from => "idea_image[image_id]")
       click_on("Add")
 
       expect(current_path).to eq(user_idea_path(@user, @idea))

@@ -7,7 +7,7 @@ class IdeasController < ApplicationController
   def show
     @idea = Idea.find(params[:id])
     @user = @idea.user
-    @idea_image = @idea.images.new()
+    @idea_image = IdeaImage.new()
     @images = Image.all
   end
 
