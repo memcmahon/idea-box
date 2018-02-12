@@ -9,7 +9,7 @@
 <section class="grid">
   <% @idea.images.each do |image| %>
     <img src="<%= image.url %>">
-    <%= link_to "Remove", idea_image_path(@idea_image), method: :delete %>
+    <%= link_to "Remove", idea_image_path(image.idea_images.find_by(idea: @idea)), method: :delete %>
   <% end %>
 </section>
 
