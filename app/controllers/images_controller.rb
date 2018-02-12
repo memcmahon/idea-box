@@ -17,7 +17,7 @@ class ImagesController < ApplicationController
   end
 
   def update
-    @image = Image.find[:id]
+    @image = Image.find(params[:id])
     @image.update(image_params)
     redirect_to images_path
   end
