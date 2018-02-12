@@ -10,6 +10,17 @@ class IdeaImagesController < ApplicationController
     end
   end
 
+  def destroy
+    @idea_image = IdeaImage.find(params[:id])
+    @idea = @idea_image.idea
+    @user = @idea.user
+    if @idea_image.destroy
+      redirect_to user_idea_path(@user, @idea)
+    else
+      redirect_to user_idea_path(@user, @idea)
+    end
+  end
+
   private
 
   def idea_image_params
