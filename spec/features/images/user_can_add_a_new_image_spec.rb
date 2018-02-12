@@ -11,7 +11,7 @@ describe "user can add a new image" do
 
       fill_in("image[url]", with: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYPaAmeoHvClKshaY-isK3YHsg6zV1jVyNJgnVsJxpePuRXPYz")
       fill_in("image[alt_tag]", with: "Capybara Pool Time")
-      click_on("Add Image")
+      click_on("Create Image")
 
       expect(page).to have_xpath("//img[contains(@src,'https://images.unsplash.com/photo-1495554698253-681539e9ea84?ixlib=rb-0.3.5&s=72f6aabe1c8a038b8f4f6adfac6a5fba&auto=format&fit=crop&w=2850&q=80')]")
       expect(page).to have_content("Heliskiing")
