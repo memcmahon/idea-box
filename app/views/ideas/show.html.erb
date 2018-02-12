@@ -14,7 +14,7 @@
 
 <h3>Add Image</h3>
 <%= form_for @idea_image do |f| %>
-  <%= f.hidden_field :idea, value: @idea %>
+  <%= f.hidden_field :idea_id, value: @idea.id %>
   <%= f.label "Image" %>
   <%= f.collection_select(:image_id, @images.order(:alt_tag), :id, :alt_tag) %>
   <%= f.submit "Add" %>
