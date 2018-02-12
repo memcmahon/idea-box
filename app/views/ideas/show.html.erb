@@ -11,3 +11,10 @@
     <img src="<%= image.url %>">
   <% end %>
 </section>
+
+<h3>Add Image</h3>
+<%= form_for [@idea, @idea_image] do |f| %>
+  <%= f.label :image %>
+  <%= f.collection_select(:image_id, @images.order(:alt_tag), :id, :alt_tag) %>
+  <%= f.submit "Add" %>
+<% end %>
