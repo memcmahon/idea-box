@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/', to: 'welcome#index', as: 'root'
+
   resources :categories, except:[:new]
 
   resources :images, except:[:new, :show]
