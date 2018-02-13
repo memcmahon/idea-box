@@ -30,7 +30,7 @@ describe "users can see a list of all categories" do
 
       visit admin_categories_path
 
-      expect(page).to have_content("The page you were looking for does not exist")
+      expect(page).to have_content("The page you were looking for doesn't exist")
     end
   end
 end
