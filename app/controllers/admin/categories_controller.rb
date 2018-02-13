@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class Admin::CategoriesController < BaseController
   def index
     @categories = Category.all
     @category = Category.new()
