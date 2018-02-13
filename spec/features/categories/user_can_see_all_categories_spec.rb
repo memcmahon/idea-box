@@ -10,7 +10,7 @@ describe "users can see a list of all categories" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-      visit categories_path
+      visit admin_categories_path
 
       expect(page).to have_content("Categories")
       expect(page).to have_content(category_1.name)
@@ -28,7 +28,7 @@ describe "users can see a list of all categories" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit categories_path
+      visit admin_categories_path
 
       expect(page).to have_content("The page you were looking for does not exist")
     end
