@@ -24,7 +24,7 @@ describe "user can edit an existing category" do
   end
 
   describe "they visit category_path" do
-    it "they can edit a category" do
+    xit "they can edit a category" do
       visit category_path(@adventure)
 
       click_on("Edit")
