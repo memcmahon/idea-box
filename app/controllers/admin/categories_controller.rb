@@ -13,7 +13,7 @@ class Admin::CategoriesController < Admin::BaseController
     if @category.save
       flash[:notice] = "Success"
     end
-    redirect_to categories_path
+    redirect_to admin_categories_path
   end
 
   def edit
@@ -23,13 +23,13 @@ class Admin::CategoriesController < Admin::BaseController
   def update
     @category = Category.find(params[:id])
     @category.update(category_params)
-    redirect_to categories_path
+    redirect_to admin_categories_path
   end
 
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    redirect_to categories_path
+    redirect_to admin_categories_path
   end
 
   private
