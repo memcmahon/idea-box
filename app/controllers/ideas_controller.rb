@@ -34,6 +34,7 @@ class IdeasController < ApplicationController
     @idea = Idea.find(params[:id])
     @user = @idea.user
     @categories = Category.all
+    @images = Image.all
   end
 
   def update
