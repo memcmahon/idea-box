@@ -7,8 +7,8 @@ describe Idea, type: :model do
   end
 
   describe "Relationships" do
-    it {should belong_to(:user)}
-    it {should belong_to(:category)}
-    it {should have_many(:images).through(:idea_images)}
+    it { should belong_to(:user) }
+    it { should belong_to(:category) }
+    it { should have_many(:images).through(:idea_images) }
   end
 end
