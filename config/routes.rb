@@ -3,9 +3,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :categories, except:[:new]
+    resources :images, except:[:new, :show]
   end
-
-  resources :images, except:[:new, :show]
 
   resources :idea_images, only:[:create, :destroy]
 
