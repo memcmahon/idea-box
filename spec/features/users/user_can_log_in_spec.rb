@@ -16,6 +16,6 @@ describe "when a user logs in" do
     click_on "Log In"
 
     expect(current_path).to eq(user_path(user))
-    expect(page).to have_content("Welcome, #{user.username}")
+    expect(page).to have_content("Welcome, #{user.first_name}")
   end
 end
