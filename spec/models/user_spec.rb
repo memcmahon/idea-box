@@ -24,15 +24,15 @@ describe User, type: :model do
     it "can be created as a regular user" do
       user = User.create!(first_name: "Jane", last_name: "Doe", email: "jane@fakemail.com", password: "test", role: 0)
 
-      expect(admin.role).to eq("default")
-      expect(admin.default?).to be_truthy
+      expect(user.role).to eq("default")
+      expect(user.default?).to be_truthy
     end
 
     it "can be defaulted to a regular user" do
       user = User.create!(first_name: "Jane", last_name: "Doe", email: "jane@fakemail.com", password: "test")
 
-      expect(admin.role).to eq("default")
-      expect(admin.default?).to be_truthy
+      expect(user.role).to eq("default")
+      expect(user.default?).to be_truthy
     end
   end
 end
