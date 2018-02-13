@@ -29,8 +29,8 @@ describe "only admins can see category show" do
       user = User.create(first_name: "Jane", last_name: "Doe", email: "jane@fakemail.com", password: "test")
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      
-      visit admin_category_path(@category_1)
+
+      visit edit_admin_category_path(@category_1)
 
       expect(page).to have_content("The page you were looking for doesn't exist")
     end
