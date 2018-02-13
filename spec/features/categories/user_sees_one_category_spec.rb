@@ -8,7 +8,7 @@ describe "user sees one category" do
   end
 
   describe "they visit category index" do
-    it "they can link to a category show page" do
+    xit "they can link to a category show page" do
       visit categories_path
 
       click_on("Adventure")
