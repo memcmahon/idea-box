@@ -21,6 +21,7 @@ describe "visitor can create a user profile" do
       fill_in("user[last_name]", with: "Doe")
       fill_in("user[email]", with: "jane@fakemail.com")
       fill_in("user[password]", with: "test")
+      fill_in("user[password_confirmation]", with: "test")
       click_on("Create User")
 
       expect(current_path).to eq(user_path(User.last))
