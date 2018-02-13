@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get '/', to: 'welcome#index', as: 'root'
 
-  resources :categories, except:[:new]
+  namespace :admin do
+    resources :categories, except:[:new]
+  end
 
   resources :images, except:[:new, :show]
 
