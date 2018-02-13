@@ -46,7 +46,7 @@ describe "only admins can edit an existing category" do
 
   describe "as a regular user they visit edit category page" do
     it "they see an error message" do
-      user = User.create(first_name: "Jane", last_name: "Doe", email: "jane@fakemail.com", password: "test", role: 1)
+      user = User.create(first_name: "Jane", last_name: "Doe", email: "jane@fakemail.com", password: "test")
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
