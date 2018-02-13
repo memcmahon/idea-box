@@ -14,6 +14,7 @@ class IdeasController < ApplicationController
 
   def new
     @categories = Category.all
+    @images = Image.all
     @user = User.find(params[:user_id])
     @idea = @user.ideas.new()
   end
