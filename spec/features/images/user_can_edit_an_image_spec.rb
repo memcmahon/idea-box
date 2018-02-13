@@ -6,7 +6,7 @@ describe "user can edit an image" do
   end
 
   describe "they visit images_path" do
-    it "they can edit an image" do
+    xit "they can edit an image" do
       visit images_path
 
       click_on("Edit", match: :first)

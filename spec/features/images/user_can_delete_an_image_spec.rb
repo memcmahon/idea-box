@@ -7,7 +7,7 @@ describe "user can delete an image" do
   end
 
   describe "they visit images_path" do
-    it "they can delete an image" do
+    xit "they can delete an image" do
       visit images_path
 
       click_on("Delete", match: :first)

@@ -6,7 +6,7 @@ describe "user can add a new image" do
   end
 
   describe "they visit images_path" do
-    it "they can add a new image" do
+    xit "they can add a new image" do
       visit images_path
 
       fill_in("image[url]", with: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYPaAmeoHvClKshaY-isK3YHsg6zV1jVyNJgnVsJxpePuRXPYz")
