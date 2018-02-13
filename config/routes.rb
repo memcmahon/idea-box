@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :idea_images, only:[:create, :destroy]
 
-  resources :users, only:[:new]
+  resources :users, only:[:new, :create]
 
   resources :users, only:[:show] do
     resources :ideas
