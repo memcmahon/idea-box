@@ -5,4 +5,6 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
 
   has_many :ideas
+
+  enum role: ["default", "admin"]
 end
