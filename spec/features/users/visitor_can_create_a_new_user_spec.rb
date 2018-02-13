@@ -12,4 +12,18 @@ describe "visitor can create a user profile" do
       expect(current_path).to eq(new_user_path)
     end
   end
+
+  describe "they visit new_user_path" do
+    it "they can create a new user" do
+      visit new_user_path
+
+      fill_in("user[first_name]", with: "Jane")
+      fill_in("user[last_name]", with: "Doe")
+      fill_in("user[email]", with: "jane@fakemail.com")
+      fill_in("user[password]", with: "test")
+      click_on("Create User")
+
+      expect(current_path).to eq(user_path(User.last))
+    end
+  end
 end
