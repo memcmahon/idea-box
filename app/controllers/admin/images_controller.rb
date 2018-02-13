@@ -8,7 +8,7 @@ class Admin::ImagesController < Admin::BaseController
     @image = Image.new(image_params)
     if @image.save
       flash[:notice] = "Success"
-      redirect_to images_path
+      redirect_to admin_images_path
     end
   end
 
@@ -19,13 +19,13 @@ class Admin::ImagesController < Admin::BaseController
   def update
     @image = Image.find(params[:id])
     @image.update(image_params)
-    redirect_to images_path
+    redirect_to admin_images_path
   end
 
   def destroy
     @image = Image.find(params[:id])
     @image.destroy
-    redirect_to images_path
+    redirect_to admin_images_path
   end
 
   private
