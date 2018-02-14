@@ -16,7 +16,7 @@
 
   <div>
     <%= f.label :images %>
-    <%= f.collection_check_boxes(:image_id, @images.order(:alt_tag), :id, :alt_tag) %>
+    <%= f.collection_check_boxes(:image_ids, @images.order(:alt_tag), :id, :alt_tag) %>
   </div><br>
 
   <div>

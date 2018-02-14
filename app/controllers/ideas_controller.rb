@@ -23,6 +23,9 @@ class IdeasController < ApplicationController
     @user = User.find(params[:user_id])
     @idea = @user.ideas.new(idea_params)
     if @idea.save
+      params[:idea][:image_ids].each do |image_id|
+        @idea.idea_images.create(image_id: image_id.to_i)
+      end
       flash[:notice] = "Success"
       redirect_to user_idea_path(@user, @idea)
     else
@@ -58,6 +61,6 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :content, :category_id, :user)
+    params.require(:idea).permit(:title, :content, :category_id, :user, :image_ids)
   end
 end
