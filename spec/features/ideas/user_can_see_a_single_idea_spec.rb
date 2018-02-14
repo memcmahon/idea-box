@@ -14,6 +14,8 @@ describe "users can view the details of a single idea" do
 
   describe "they visit user_idea_path" do
     it "they can see all the idea details(including photos)" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
       visit user_idea_path(@user, @idea_1)
 
       expect(page).to have_content("Heli-Ski Alaska")

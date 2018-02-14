@@ -10,6 +10,8 @@ describe "a user can see a list of their own ideas" do
 
   describe "they visit user_ideas_path" do
     it "they see all of their ideas" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+      
       visit user_ideas_path(@user)
 
       expect(page).to have_content("Heli-Ski Alaska")
