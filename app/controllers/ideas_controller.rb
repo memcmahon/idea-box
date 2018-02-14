@@ -36,14 +36,13 @@ class IdeasController < ApplicationController
 
   def update
     @idea = Idea.find(params[:id])
-    @user = current_user
     if @idea.update(idea_params)
       @idea.idea_images.destroy_all
       params[:idea][:image_ids].each do |id|
         @idea.idea_images.create(image_id: id.to_i)
       end
       flash[:notice] = "Success"
-      redirect_to user_idea_path(@user, @idea)
+      redirect_to user_idea_path(current_user, @idea)
     else
       render :edit
     end
