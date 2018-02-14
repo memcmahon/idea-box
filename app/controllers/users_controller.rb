@@ -3,6 +3,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if current_admin?
+      render :admin_show
+    else
+      render :show
+    end
   end
 
   def new
