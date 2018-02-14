@@ -6,13 +6,23 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @idea = Idea.find(params[:id])
+    if current_user.id.to_s == params[:user_id]
+      @idea = Idea.find(params[:id])
+    else
+      redirect_to user_ideas_path(current_user)
+      flash[:notice] = "Stick to your own ideas!"
+    end
   end
 
   def new
-    @categories = Category.all
-    @images = Image.all
-    @idea = current_user.ideas.new()
+    if current_user.id.to_s == params[:user_id]
+      @categories = Category.all
+      @images = Image.all
+      @idea = current_user.ideas.new()
+    else
+      redirect_to user_ideas_path(current_user)
+      flash[:notice] = "Stick to your own ideas!"
+    end
   end
 
   def create
@@ -29,9 +39,14 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    @idea = Idea.find(params[:id])
-    @categories = Category.all
-    @images = Image.all
+    if current_user.id.to_s == params[:user_id]
+      @idea = Idea.find(params[:id])
+      @categories = Category.all
+      @images = Image.all
+    else
+      redirect_to user_ideas_path(current_user)
+      flash[:notice] = "Stick to your own ideas!"
+    end
   end
 
   def update
