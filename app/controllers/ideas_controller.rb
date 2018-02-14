@@ -69,8 +69,9 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    @idea = Idea.find(params[:id])
+    @idea = current_user.ideas.find(params[:id])
     @idea.destroy
+    binding.pry
     redirect_to user_ideas_path(current_user)
   end
 
