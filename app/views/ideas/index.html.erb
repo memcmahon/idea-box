@@ -1,17 +1,17 @@
 <%= link_to "Log Out", logout_path, method: :delete %>
 
-<h2><%= @user.first_name %>'s Ideas</h2>
+<h2><%= current_user.first_name %>'s Ideas</h2>
 
 <section class="grid" >
   <% @ideas.each do |idea| %>
     <div class="grid-cell">
-      <h3><%= link_to idea.title, user_idea_path(@user, idea) %></h3>
+      <h3><%= link_to idea.title, user_idea_path(current_user, idea) %></h3>
       <p><%= idea.content %></p>
-      <p><%= link_to "Edit", edit_user_idea_path(@user, idea) %> - <%= link_to "Delete", user_idea_path(@user, idea), method: :delete %></p>
+      <p><%= link_to "Edit", edit_user_idea_path(current_user, idea) %> - <%= link_to "Delete", user_idea_path(current_user, idea), method: :delete %></p>
     </div>
   <% end %>
 </section>
 
 <footer>
-  <h3><%= link_to "New Idea", new_user_idea_path(@user) %></h3>
+  <h3><%= link_to "New Idea", new_user_idea_path(current_user) %></h3>
 </footer>

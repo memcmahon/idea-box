@@ -11,6 +11,8 @@ describe "user can create a new idea" do
 
   describe "user visits user_ideas_path" do
     it "they can create a new idea" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
       visit user_ideas_path(@user)
 
       click_on("New Idea")

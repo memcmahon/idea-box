@@ -14,6 +14,8 @@ describe "user can edit an idea" do
 
   describe "user visits user_idea_path" do
     it "they can edit that idea" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
       visit user_idea_path(@user, @idea_1)
 
       click_on("Edit")
@@ -35,6 +37,8 @@ describe "user can edit an idea" do
 
   describe "user visits user_ideas_path" do
     it "they can edit that idea" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
       visit user_ideas_path(@user)
 
       click_on("Edit", match: :first)
