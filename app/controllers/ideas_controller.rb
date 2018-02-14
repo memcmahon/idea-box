@@ -1,33 +1,20 @@
 class IdeasController < ApplicationController
+  before_action :verify_user
+  before_action :set_idea, only: [:show, :edit, :update, :destroy]
+
   layout "user_layout"
 
   def index
-    if current_user.id.to_s == params[:user_id]
-      @ideas = current_user.ideas
-    else
-      flash[:notice] = "Stick to your own ideas!"
-      redirect_to user_path(current_user)
-    end
+    @ideas = current_user.ideas
   end
 
   def show
-    if current_user.id.to_s == params[:user_id]
-      @idea = Idea.find(params[:id])
-    else
-      flash[:notice] = "Stick to your own ideas!"
-      redirect_to user_path(current_user)
-    end
   end
 
   def new
-    if current_user.id.to_s == params[:user_id]
-      @categories = Category.all
-      @images = Image.all
-      @idea = current_user.ideas.new()
-    else
-      flash[:notice] = "Stick to your own ideas!"
-      redirect_to user_path(current_user)
-    end
+    @categories = Category.all
+    @images = Image.all
+    @idea = current_user.ideas.new()
   end
 
   def create
@@ -44,18 +31,11 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    if current_user.id.to_s == params[:user_id]
-      @idea = Idea.find(params[:id])
-      @categories = Category.all
-      @images = Image.all
-    else
-      flash[:notice] = "Stick to your own ideas!"
-      redirect_to user_path(current_user)
-    end
+    @categories = Category.all
+    @images = Image.all
   end
 
   def update
-    @idea = Idea.find(params[:id])
     if @idea.update(idea_params)
       @idea.idea_images.destroy_all
       params[:idea][:image_ids].each do |id|
@@ -69,14 +49,23 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    @idea = Idea.find(params[:id])
     @idea.destroy
     redirect_to user_ideas_path(current_user)
   end
 
   private
+    def set_idea
+      @idea = Idea.find(params[:id])
+    end
 
-  def idea_params
-    params.require(:idea).permit(:title, :content, :category_id, :user, :image_ids)
-  end
+    def verify_user
+      unless current_user.id.to_s == params[:user_id]
+        flash[:notice] = "Stick to your own ideas!"
+        redirect_to user_path(current_user)
+      end
+    end
+
+    def idea_params
+      params.require(:idea).permit(:title, :content, :category_id, :user, :image_ids)
+    end
 end
