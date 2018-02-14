@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   layout "user_layout"
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     if current_admin?
       render :admin_show
     else
