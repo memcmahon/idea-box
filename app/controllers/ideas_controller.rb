@@ -2,15 +2,20 @@ class IdeasController < ApplicationController
   layout "user_layout"
 
   def index
-    @ideas = current_user.ideas
+    if current_user.id.to_s == params[:user_id]
+      @ideas = current_user.ideas
+    else
+      flash[:notice] = "Stick to your own ideas!"
+      redirect_to user_path(current_user)
+    end
   end
 
   def show
     if current_user.id.to_s == params[:user_id]
       @idea = Idea.find(params[:id])
     else
-      redirect_to user_ideas_path(current_user)
       flash[:notice] = "Stick to your own ideas!"
+      redirect_to user_path(current_user)
     end
   end
 
@@ -20,8 +25,8 @@ class IdeasController < ApplicationController
       @images = Image.all
       @idea = current_user.ideas.new()
     else
-      redirect_to user_ideas_path(current_user)
       flash[:notice] = "Stick to your own ideas!"
+      redirect_to user_path(current_user)
     end
   end
 
@@ -44,8 +49,8 @@ class IdeasController < ApplicationController
       @categories = Category.all
       @images = Image.all
     else
-      redirect_to user_ideas_path(current_user)
       flash[:notice] = "Stick to your own ideas!"
+      redirect_to user_path(current_user)
     end
   end
 
