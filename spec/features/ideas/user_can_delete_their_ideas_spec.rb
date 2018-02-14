@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "user can delete ideas" do
   describe "they visit user_ideas_path" do
-    it "they can delete an idea" do
+    xit "they can delete an idea" do
       user = User.create!(first_name: "Jane", last_name: "Doe", email: "janefake.com", password: "password!")
       category = Category.create!(name: "Adventure")
       idea_1 = Idea.create!(user: user, title: "Heli-Ski Alaska", content: "lets go heliskiing in AK.", category: category)
@@ -22,7 +22,7 @@ describe "user can delete ideas" do
   end
 
   describe "they visit user_idea_path" do
-    it "they can delete that idea" do
+    xit "they can delete that idea" do
       user = User.create!(first_name: "Jane", last_name: "Doe", email: "janefake.com", password: "password!")
       category = Category.create!(name: "Adventure")
       idea_1 = user.ideas.create(title: "Heli-Ski Alaska", content: "lets go heliskiing in AK.", category: category)
