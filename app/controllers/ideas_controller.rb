@@ -2,26 +2,23 @@ class IdeasController < ApplicationController
   layout "user_layout"
 
   def index
-    @user = current_user
-    @ideas = @user.ideas
+    @ideas = current_user.ideas
   end
 
   def show
     @idea = Idea.find(params[:id])
-    @user = @idea.user
-    @idea_image = IdeaImage.new()
-    @images = Image.all
+    @user = current_user
   end
 
   def new
     @categories = Category.all
     @images = Image.all
-    @user = User.find(params[:user_id])
+    @user = current_user
     @idea = @user.ideas.new()
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = current_user
     @idea = @user.ideas.new(idea_params)
     if @idea.save
       params[:idea][:image_ids].each do |id|
@@ -36,14 +33,14 @@ class IdeasController < ApplicationController
 
   def edit
     @idea = Idea.find(params[:id])
-    @user = @idea.user
+    @user = current_user
     @categories = Category.all
     @images = Image.all
   end
 
   def update
     @idea = Idea.find(params[:id])
-    @user = @idea.user
+    @user = current_user
     if @idea.update(idea_params)
       @idea.idea_images.destroy_all
       params[:idea][:image_ids].each do |id|
@@ -58,7 +55,7 @@ class IdeasController < ApplicationController
 
   def destroy
     @idea = Idea.find(params[:id])
-    @user = @idea.user
+    @user = current_user
     @idea.destroy
     redirect_to user_ideas_path(@user)
   end
