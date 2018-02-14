@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :images, except:[:new, :show]
   end
 
-  resources :idea_images, only:[:create, :destroy]
+  resources :ideas, only: [] do
+    resources :idea_images, only:[:create, :destroy]
+  end
 
   resources :users, only:[:new, :create]
 

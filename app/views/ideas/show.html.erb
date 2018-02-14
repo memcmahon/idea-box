@@ -9,15 +9,6 @@
 
 <section class="grid">
   <% @idea.images.each do |image| %>
-    <img src="<%= image.url %>">
-    <%= link_to "Remove", idea_image_path(image.idea_images.find_by(idea: @idea)), method: :delete %>
+    <img src="<%= image.url %>" alt="<%= image.alt_tag%>">
   <% end %>
 </section>
-
-<h3>Add Image</h3>
-<%= form_for @idea_image do |f| %>
-  <%= f.hidden_field :idea_id, value: @idea.id %>
-  <%= f.label "Image" %>
-  <%= f.collection_select(:image_id, @images.order(:alt_tag), :id, :alt_tag) %>
-  <%= f.submit "Add" %>
-<% end %>

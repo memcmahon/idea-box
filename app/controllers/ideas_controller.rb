@@ -15,6 +15,7 @@ class IdeasController < ApplicationController
 
   def new
     @categories = Category.all
+    @images = Image.all
     @user = User.find(params[:user_id])
     @idea = @user.ideas.new()
   end
@@ -23,6 +24,9 @@ class IdeasController < ApplicationController
     @user = User.find(params[:user_id])
     @idea = @user.ideas.new(idea_params)
     if @idea.save
+      params[:idea][:image_ids].each do |id|
+        @idea.idea_images.create(image_id: id.to_i)
+      end
       flash[:notice] = "Success"
       redirect_to user_idea_path(@user, @idea)
     else
@@ -34,12 +38,17 @@ class IdeasController < ApplicationController
     @idea = Idea.find(params[:id])
     @user = @idea.user
     @categories = Category.all
+    @images = Image.all
   end
 
   def update
     @idea = Idea.find(params[:id])
     @user = @idea.user
     if @idea.update(idea_params)
+      @idea.idea_images.destroy_all
+      params[:idea][:image_ids].each do |id|
+        @idea.idea_images.create(image_id: id.to_i)
+      end
       flash[:notice] = "Success"
       redirect_to user_idea_path(@user, @idea)
     else
@@ -57,6 +66,6 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :content, :category_id, :user)
+    params.require(:idea).permit(:title, :content, :category_id, :user, :image_ids)
   end
 end
