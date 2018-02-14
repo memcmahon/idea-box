@@ -23,8 +23,8 @@ class IdeasController < ApplicationController
     @user = User.find(params[:user_id])
     @idea = @user.ideas.new(idea_params)
     if @idea.save
-      params[:idea][:image_ids].each do |image_id|
-        @idea.idea_images.create(image_id: image_id.to_i)
+      params[:idea][:image_ids].each do |id|
+        @idea.idea_images.create(image_id: id.to_i)
       end
       flash[:notice] = "Success"
       redirect_to user_idea_path(@user, @idea)
@@ -44,6 +44,10 @@ class IdeasController < ApplicationController
     @idea = Idea.find(params[:id])
     @user = @idea.user
     if @idea.update(idea_params)
+      @idea.idea_images.destroy_all
+      params[:idea][:image_ids].each do |id|
+        @idea.idea_images.create(image_id: id.to_i)
+      end
       flash[:notice] = "Success"
       redirect_to user_idea_path(@user, @idea)
     else
