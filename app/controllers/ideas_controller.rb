@@ -1,4 +1,6 @@
 class IdeasController < ApplicationController
+  layout "user_layout"
+
   def index
     @user = User.find(params[:user_id])
     @ideas = @user.ideas
