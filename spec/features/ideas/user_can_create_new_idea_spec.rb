@@ -25,7 +25,7 @@ describe "user can create a new idea" do
       expect(page).to have_content("Heli-Ski Alaska")
       expect(page).to have_content("Lets shred in AK!")
       expect(page).to have_content("Adventure")
-      expect(page).to have_content("Heliskiing")
+      expect(page).to have_xpath("//img[contains(@src,'#{@image_1.url}')]")
       expect(page).to_not have_content("Spa Weekend")
       expect(page).to_not have_content("Relax")
     end
