@@ -1,6 +1,10 @@
 $dark-charcoal: #454850;
 $light-gray: #C0C5C1;
-$pale-yellow: #EFF4DB;
+$pale-blue: #EDF9F9;
+
+html {
+  background-color: $pale-blue;
+}
 
 body, h1, a {
   margin: 0;
@@ -31,7 +35,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: $pale-yellow;
+  color: $pale-blue;
   margin: 2%;
 }
 
