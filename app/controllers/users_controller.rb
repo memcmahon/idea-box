@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  layout "user_layout"
+
   def show
     @user = User.find(params[:id])
   end
