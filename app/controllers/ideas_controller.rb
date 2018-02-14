@@ -16,14 +16,13 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @idea = @user.ideas.new(idea_params)
+    @idea = current_user.ideas.new(idea_params)
     if @idea.save
       params[:idea][:image_ids].each do |id|
         @idea.idea_images.create(image_id: id.to_i)
       end
       flash[:notice] = "Success"
-      redirect_to user_idea_path(@user, @idea)
+      redirect_to user_idea_path(current_user, @idea)
     else
       render :new
     end
