@@ -30,7 +30,6 @@ class IdeasController < ApplicationController
 
   def edit
     @idea = Idea.find(params[:id])
-    @user = current_user
     @categories = Category.all
     @images = Image.all
   end
