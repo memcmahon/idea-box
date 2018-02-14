@@ -20,8 +20,21 @@ img {
   border: 2px solid $light-gray;
 }
 
+.image-cell {
+  border: 2px solid $light-gray;
+  width: 40%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    width: 80%;
+    height: 80%;
+  }
+}
+
 header {
-  background-image: url('sky.jpg');
+  background-image: url("https://cdn.pixabay.com/photo/2017/08/01/12/16/blue-2564914_1280.jpg");
   background-size: cover;
   background-position: left;
   text-align: center;

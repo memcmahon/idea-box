@@ -1,4 +1,6 @@
 class IdeasController < ApplicationController
+  layout "user_layout"
+
   def index
     @user = User.find(params[:user_id])
     @ideas = @user.ideas
@@ -6,7 +8,6 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
-    # binding.pry
     @user = @idea.user
     @idea_image = IdeaImage.new()
     @images = Image.all

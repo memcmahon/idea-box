@@ -1,11 +1,15 @@
 <%= link_to "Log Out", logout_path, method: :delete %>
 <h2>Images</h2>
 
-<% @images.each do |image| %>
-  <img src="<%= image.url %>">
-  <%= image.alt_tag %>
-  <%= link_to "Edit", edit_admin_image_path(image) %> - <%= link_to "Delete", admin_image_path(image), method: :delete %>
-<% end %>
+<section class="grid">
+  <% @images.each do |image| %>
+    <div class = "image-cell">
+      <p><%= link_to "Edit", edit_admin_image_path(image) %> - <%= link_to "Delete", admin_image_path(image), method: :delete %></p>
+      <img src="<%= image.url %>">
+      <p><%= image.alt_tag %></p>
+    </div>
+  <% end %>
+</section>
 
 <footer>
   <h3>Add Image</h3>
