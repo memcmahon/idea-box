@@ -12,8 +12,7 @@ class IdeasController < ApplicationController
   def new
     @categories = Category.all
     @images = Image.all
-    @user = current_user
-    @idea = @user.ideas.new()
+    @idea = current_user.ideas.new()
   end
 
   def create
