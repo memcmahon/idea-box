@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   layout "user_layout"
 
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
     @ideas = @user.ideas
   end
 
