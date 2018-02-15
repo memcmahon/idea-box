@@ -113,10 +113,17 @@ footer {
 }
 
 form {
+  div {
+    text-align: left;
+  }
+  label {
+    width: 100px;
+  }
   display: flex;
   flex-direction: column;
-  width: 70%;
-  margin-left: 15%;
+  align-items: flex-start;
+  width: 24%;
+  margin-left: 38%;
 }
 
 .flash{
