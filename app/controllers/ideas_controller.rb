@@ -49,7 +49,7 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    @idea.destroy
+    current_user.ideas.destroy(params[:id])
     redirect_to user_ideas_path(current_user)
   end
 
