@@ -1,5 +1,9 @@
 <h2>Welcome, <%= @user.first_name %></h2>
 
+<h3><%= link_to "Current Travel Ideas", user_ideas_path(@user) %></h3>
+
+<h3><%= link_to "New Travel Idea", new_user_idea_path(@user) %></h3>
+
 <h3><%= link_to "Categories", admin_categories_path %></h3>
 
 <h3><%= link_to "Images", admin_images_path %></h3>
