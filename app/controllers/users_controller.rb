@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   layout "welcome_layout", only:[:new]
-  layout "logout_layout", only:[:show]
 
   def show
     @user = current_user
