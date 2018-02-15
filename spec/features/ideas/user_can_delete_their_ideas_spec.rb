@@ -8,17 +8,11 @@ describe "user can delete ideas" do
       idea_1 = Idea.create!(user: user, title: "Heli-Ski Alaska", content: "lets go heliskiing in AK.", category: category)
       idea_2 = Idea.create!(user: user, title: "Boulder Virgin Gorda", content: "lets boulder in virgin gorda!", category: category)
 
-      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      visit login_path
-      fill_in("email", with: "janefake.com")
-      fill_in("password", with: "password!")
-      click_on("Log In")
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit user_ideas_path(user)
 
       click_on("Delete", match: :first)
-
-      save_and_open_page
 
       expect(page).to have_content("Boulder Virgin Gorda")
       expect(page).to_not have_content("Heli-Ski Alaska")
