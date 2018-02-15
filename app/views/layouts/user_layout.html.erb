@@ -16,6 +16,7 @@
       <nav>
         <p><%= link_to "My Dashboard", user_path(current_user) %></p>
         <p><%= link_to "My Ideas", user_ideas_path(current_user)%></p>
+        <p><%= link_to "Log Out", logout_path, method: :delete%></p>
       </nav>
     </header>
     <p class="flash"><%= flash.notice %></p>
