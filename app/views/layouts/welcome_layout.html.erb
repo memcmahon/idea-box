@@ -12,11 +12,9 @@
 
   <body>
     <header>
-      <h1>Travel Box</h1>
+      <h1><%= link_to "Travel Box", root_path %></h1>
       <nav>
-        <p><%= link_to "My Dashboard", user_path(current_user) %></p>
-        <p><%= link_to "My Ideas", user_ideas_path(current_user)%></p>
-        <p><%= link_to "Log Out", logout_path, method: :delete%></p>
+        t
       </nav>
     </header>
     <p class="flash"><%= flash.notice %></p>
