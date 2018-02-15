@@ -2,6 +2,10 @@
 
 <h2><%= current_user.first_name %>'s Ideas</h2>
 
+<% if @ideas.empty? %>
+  <p>Log your first travel dream by clicking 'New Idea' below!</p>
+<% end %>
+
 <section class="grid" >
   <% @ideas.each do |idea| %>
     <div class="grid-cell">
