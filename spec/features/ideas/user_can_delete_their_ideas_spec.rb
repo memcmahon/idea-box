@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "user can delete ideas" do
   describe "they visit user_ideas_path" do
-    xit "they can delete an idea" do
+    it "they can delete an idea" do
       user = User.create!(first_name: "Jane", last_name: "Doe", email: "janefake.com", password: "password!")
       category = Category.create!(name: "Adventure")
       idea_1 = Idea.create!(user: user, title: "Heli-Ski Alaska", content: "lets go heliskiing in AK.", category: category)
@@ -14,15 +14,13 @@ describe "user can delete ideas" do
 
       click_on("Delete", match: :first)
 
-      save_and_open_page
-
       expect(page).to have_content("Boulder Virgin Gorda")
       expect(page).to_not have_content("Heli-Ski Alaska")
     end
   end
 
   describe "they visit user_idea_path" do
-    xit "they can delete that idea" do
+    it "they can delete that idea" do
       user = User.create!(first_name: "Jane", last_name: "Doe", email: "janefake.com", password: "password!")
       category = Category.create!(name: "Adventure")
       idea_1 = user.ideas.create(title: "Heli-Ski Alaska", content: "lets go heliskiing in AK.", category: category)

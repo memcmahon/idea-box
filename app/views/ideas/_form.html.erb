@@ -1,22 +1,26 @@
 <%= form_for [current_user, @idea] do |f| %>
   <div>
-    <%= f.label :title %>
+    <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div><br>
 
   <div>
-    <%= f.label :content %>
+    <%= f.label :content %><br>
     <%= f.text_area :content %>
   </div><br>
 
   <div>
-    <%= f.label :category %>
+    <%= f.label :category %><br>
     <%= f.collection_select(:category_id, @categories.order(:name), :id, :name) %>
   </div><br>
 
   <div>
-    <%= f.label :images %>
-    <%= f.collection_check_boxes(:image_ids, @images.order(:alt_tag), :id, :alt_tag) %>
+    <%= f.label "Select Image(s):" %>
+    <%= f.collection_check_boxes :image_ids, @images.order(:alt_tag), :id, :alt_tag do |t| %>
+      <ul>
+        <%= t.check_box %> <%= t.label %>
+      </ul>
+    <% end %>
   </div><br>
 
   <div>

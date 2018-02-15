@@ -1,12 +1,16 @@
-<%= link_to "Log Out", logout_path, method: :delete %>
+<%= link_to "My Dashboard", user_path(current_user) %> - <%= link_to "Log Out", logout_path, method: :delete %>
 
 <h2><%= current_user.first_name %>'s Ideas</h2>
+
+<% if @ideas.empty? %>
+  <p>Log your first travel dream by clicking 'New Idea' below!</p>
+<% end %>
 
 <section class="grid" >
   <% @ideas.each do |idea| %>
     <div class="grid-cell">
+      <p><%= idea.category.name %></p>
       <h3><%= link_to idea.title, user_idea_path(current_user, idea) %></h3>
-      <p><%= idea.content %></p>
       <p><%= link_to "Edit", edit_user_idea_path(current_user, idea) %> - <%= link_to "Delete", user_idea_path(current_user, idea), method: :delete %></p>
     </div>
   <% end %>
