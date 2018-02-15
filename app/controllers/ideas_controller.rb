@@ -2,8 +2,6 @@ class IdeasController < ApplicationController
   before_action :verify_user
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
-  layout "user_layout"
-
   def index
     @ideas = current_user.ideas
   end
