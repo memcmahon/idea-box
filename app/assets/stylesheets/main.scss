@@ -76,7 +76,10 @@ p.welcome-message {
 }
 
 p.content {
+  width: 98%;
+  overflow-wrap: break-word;
   margin-left: 1%;
+  margin-right: 1%;
 }
 
 section.content {
